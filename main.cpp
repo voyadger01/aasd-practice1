@@ -9,13 +9,13 @@ T* merge(const T* a, size_t sa, const T* b, size_t sb, T* c) {
     c[k++] = (a[i] < b[j]) ? a[i++] : b[j++]; // T::operator<
   }
   while (i < sa) {
-    c[k++] = a[i++];
+    c[k++] = a[i++]; // T::operator=
   }
   while (j < sb) {
-    c[k++] = b[j++];
+    c[k++] = b[j++]; // T::operator=
   }
   return c;
 }
 
-// Неявный интерфейс: T::operator<
+// Неявный интерфейс: T::operator<, T::operator=
 // Недостатки явного интерфейса: пользователю самому придётся выделять память под функцию
